@@ -4,10 +4,17 @@ public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
 
     protected Vector<E> data; // the data, kept in heap order
 
+    /**
+     *
+     */
     public VectorHeap() {
         data = new Vector<>();
     }
 
+    /**
+     *
+     * @param v
+     */
     public VectorHeap(Vector<E> v) {
         data = new Vector<>(v.size()); // we know ultimate size
         for (int i = 0; i < v.size(); i++) {// add elements to heap
@@ -15,6 +22,10 @@ public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
         }
     }
 
+    /**
+     *
+     * @param arr
+     */
     public VectorHeap(E[] arr) {
         data = new Vector<>(arr.length); // we know ultimate size
         for (int i = 0; i < arr.length; i++) {// add elements to heap
@@ -22,18 +33,37 @@ public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
         }
     }
 
+    /**
+     *
+     * @param i
+     * @return
+     */
     protected static int parent(int i) {
         return (i - 1) / 2;
     }
 
+    /**
+     *
+     * @param i
+     * @return
+     */
     protected static int left(int i) {
         return 2 * i + 1;
     }
 
+    /**
+     *
+     * @param i
+     * @return
+     */
     protected static int right(int i) {
         return 2 * (i + 1);
     }
 
+    /**
+     *
+     * @param leaf
+     */
     protected void percolateUp(int leaf) {
         int parent = parent(leaf);
         E value = data.get(leaf);
@@ -45,12 +75,20 @@ public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
         data.set(leaf, value);
     }
 
+    /**
+     *
+     * @param value
+     */
     @Override
     public void add(E value) {
         data.add(value);
         percolateUp(data.size() - 1);
     }
 
+    /**
+     *
+     * @param root
+     */
     protected void pushDownRoot(int root) {
         int heapSize = data.size();
         E value = data.get(root);
@@ -75,6 +113,10 @@ public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public E remove() {
         E minVal = getFirst();
@@ -86,6 +128,10 @@ public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
         return minVal;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public E getFirst() {
 
@@ -96,18 +142,30 @@ public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean isEmpty() {
         return data.isEmpty();
     }
+
+    /**
+     *
+     * @return
+     */
 
     @Override
     public int size() {
         return data.size();
     }
 
+    /**
+     *
+     */
     @Override
     public void clear() {
-
+        data.clear();
     }
 }
