@@ -2,3 +2,5 @@ vi,juan02,0
 ls,maria30,-20
 firefox,rosa20,5
 cat,juan02,5
+buscaminas,esteban12,19
+IntelliJ,pablo15,9

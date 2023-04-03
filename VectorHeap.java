@@ -1,6 +1,6 @@
 import java.util.Vector;
 
-public class VectorHeap<E extends Comparable<E>> implements GestorDeProcesos<E> {
+public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
 
     protected Vector<E> data; // the data, kept in heap order
 
@@ -9,17 +9,15 @@ public class VectorHeap<E extends Comparable<E>> implements GestorDeProcesos<E> 
     }
 
     public VectorHeap(Vector<E> v) {
-        int i;
         data = new Vector<>(v.size()); // we know ultimate size
-        for (i = 0; i < v.size(); i++) {// add elements to heap
+        for (int i = 0; i < v.size(); i++) {// add elements to heap
             add(v.get(i));
         }
     }
 
     public VectorHeap(E[] arr) {
-        int i;
         data = new Vector<>(arr.length); // we know ultimate size
-        for (i = 0; i < arr.length; i++) {// add elements to heap
+        for (int i = 0; i < arr.length; i++) {// add elements to heap
             add(arr[i]);
         }
     }
@@ -101,5 +99,10 @@ public class VectorHeap<E extends Comparable<E>> implements GestorDeProcesos<E> 
     @Override
     public int size() {
         return data.size();
+    }
+
+    @Override
+    public void clear() {
+
     }
 }
