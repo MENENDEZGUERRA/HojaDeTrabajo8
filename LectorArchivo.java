@@ -7,7 +7,6 @@ public class LectorArchivo {
 
     public static void main(String[] args) {
         int op = 0;
-
         do{
             System.out.println("Escoga su implementación de PriorityQueue:");
             System.out.println("1. VectorHeap");

@@ -88,7 +88,12 @@ public class VectorHeap<E extends Comparable<E>> implements Priority<E> {
 
     @Override
     public E getFirst() {
-        return data.get(0);
+
+        if (data.isEmpty()){
+            return null;
+        } else{
+            return data.get(0);
+        }
     }
 
     @Override
